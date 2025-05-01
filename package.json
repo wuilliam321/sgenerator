@@ -1,0 +1,24 @@
+{
+  "name": "signed-url-generator",
+  "version": "1.0.0",
+  "description": "A service to generate signed URLs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js",
+    "docs": "node swagger.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "js-yaml": "^4.1.0",
+    "supertest": "^7.1.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
