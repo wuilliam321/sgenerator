@@ -4,14 +4,16 @@ const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const BASE_URL = process.env.BASE_URL || "http://localhost";
 
 // Secret key for signing URLs
 const SECRET_KEY = process.env.SECRET_KEY || 'your-secret-key';
 
 // Default URL expiry time in minutes
-const MINUTES = 60 * 1000
-const DEFAULT_EXPIRY_MINUTES = 60 * MINUTES;
-const DEFAULT_EXPIRY_BUFFER_MINUTES = 5 * MINUTES;
+const SECONDS = 1000
+const MINUTES = 60 * SECONDS
+const DEFAULT_EXPIRY_MINUTES = 60 * SECONDS;
+const DEFAULT_EXPIRY_BUFFER_MINUTES = 5 * SECONDS;
 
 
 // Swagger definition
@@ -163,7 +165,7 @@ app.post('/generate', (req, res) => {
     .digest('hex');
 
   // Create signed URL with just the path and query parameters
-  const signedUrl = `/session?u=${encodeURIComponent(username)}&t=${timestamp}&sig=${signature}`;
+  const signedUrl = BASE_URL + `/verify?u=${encodeURIComponent(username)}&t=${timestamp}&sig=${signature}`;
 
   // Store in cache
   urlCache.set(cacheKey, {

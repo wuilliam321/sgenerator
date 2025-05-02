@@ -27,7 +27,7 @@ npm install
 Set the following environment variables:
 
 - `PORT`: Server port (defaults to 3000)
-- `SECRET_KEY`: Secret key for signing URLs (defaults to 'your-secret-key', but should be changed in production)
+- `BASE_URL`: Base url for signed urls
 
 ## Usage
 
